@@ -1,6 +1,3 @@
-before:
-  hooks:
-    - cd ecr-login && go mod tidy
 builds:
   - dir: ecr-login/cli/docker-credential-ecr-login/
     env:
