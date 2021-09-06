@@ -1,24 +1,27 @@
 before:
   hooks:
-    - go mod tidy
+    - cd ecr-login && go mod tidy
 builds:
-  - dir: ecr-login
+  - dir: ecr-login/cli/docker-credential-ecr-login/
     env:
       - CGO_ENABLED=0
     goos:
-      - darwin
       - linux
+      - windows
+      - darwin
     goarch:
       - amd64
       - arm64
-    ldflags:
-      - -s -w
 archives:
-  - name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+  - replacements:
+      darwin: Darwin
+      linux: Linux
+      windows: Windows
+      amd64: x86_64
 checksum:
   name_template: 'checksums.txt'
 snapshot:
-  name_template: "{{ .Tag }}-next"
+  name_template: "{{ incpatch .Version }}-next"
 changelog:
   sort: asc
   filters:

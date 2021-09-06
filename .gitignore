@@ -2,3 +2,7 @@
 GITCOMMIT_SHA
 *.tar.gz
 *.tar
+
+dist/
+
+dist/
