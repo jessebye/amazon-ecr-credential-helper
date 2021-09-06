@@ -4,5 +4,3 @@ GITCOMMIT_SHA
 *.tar
 
 dist/
-
-dist/
