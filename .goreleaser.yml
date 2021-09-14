@@ -1,5 +1,6 @@
 builds:
   - dir: ecr-login/cli/docker-credential-ecr-login/
+    binary: docker-credential-ecr-login
     env:
       - CGO_ENABLED=0
     goos:
