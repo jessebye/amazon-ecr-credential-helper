@@ -10,6 +10,10 @@ builds:
     goarch:
       - amd64
       - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/awslabs/amazon-ecr-credential-helper/ecr-login/version.Version={{.Version}}
+      - -X github.com/awslabs/amazon-ecr-credential-helper/ecr-login/version.GitCommitSHA={{.Commit}}
 archives:
   - replacements:
       darwin: Darwin
